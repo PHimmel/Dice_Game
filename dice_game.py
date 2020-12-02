@@ -11,19 +11,19 @@ class UserInput:
 
     @staticmethod
     def request_to_play():
-        play = input('Would you like to play a dice game?\nEnter \'yes\' to play.\n')
-        if 'yes' in play:
+        play = raw_input('Would you like to play a dice game?\nEnter \'yes\' to play.\n')
+        if play == 'yes':
             return True
         else:
-            return False
+            exit()
 
     def set_number_of_rolls(self):
-        self.number_of_rolls = int(input('How many rolls would you like to have in this game?\n'))
+        self.number_of_rolls = int(raw_input('How many rolls would you like to have in this game?\n'))
         return self.number_of_rolls
 
     def roll_the_die(self):
         player = Player()
-        enter = input('It\'s your roll! Key enter to toss the die.\n')
+        enter = raw_input('It\'s your roll! Key enter to toss the die.\n')
         if '' in enter:
             return player.take_a_turn()
         else:
@@ -73,8 +73,7 @@ class DieRoll:
 
 def main():
     start = UserInput()
-    if start.request_to_play() is False:
-        exit()
+    start.request_to_play()
     num = start.set_number_of_rolls()
     pass
     start.roll_the_die()
