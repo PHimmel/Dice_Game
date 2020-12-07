@@ -74,9 +74,11 @@ class DieRoll:
 def main():
     start = UserInput()
     start.request_to_play()
-    num = start.set_number_of_rolls()
-    pass
-    start.roll_the_die()
+    total_dice_rolls = start.set_number_of_rolls()
+
+    while total_dice_rolls > 0:
+        start.roll_the_die()
+        total_dice_rolls -= 1
 
 
 if __name__ == '__main__':
