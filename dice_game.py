@@ -21,6 +21,9 @@ class UserInput:
         self.number_of_rolls = int(raw_input('How many rolls would you like to have in this game?\n'))
         return self.number_of_rolls
 
+    def confirm_number_of_rolls(self):
+        print('The number of rolls to be played is: {}'.format(self.number_of_rolls))
+
     def roll_the_die(self):
         player = Player()
         enter = raw_input('It\'s your roll! Key enter to toss the die.\n')
@@ -75,6 +78,7 @@ def main():
     start = UserInput()
     start.request_to_play()
     total_dice_rolls = start.set_number_of_rolls()
+    start.confirm_number_of_rolls()
 
     while total_dice_rolls > 0:
         start.roll_the_die()
