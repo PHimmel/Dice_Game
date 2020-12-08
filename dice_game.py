@@ -9,11 +9,10 @@ class UserInput:
     def __init__(self):
         self.number_of_rolls = 0
 
-    @staticmethod
-    def request_to_play():
+    def request_to_play(self):
         play = raw_input('Would you like to play a dice game?\nEnter \'yes\' to play.\n')
         if play == 'yes':
-            return True
+            return self.set_number_of_rolls()
         else:
             exit()
 
@@ -76,8 +75,8 @@ class DieRoll:
 
 def main():
     start = UserInput()
-    start.request_to_play()
-    total_dice_rolls = start.set_number_of_rolls()
+  #  start.request_to_play()
+    total_dice_rolls = start.request_to_play()
     start.confirm_number_of_rolls()
 
     while total_dice_rolls > 0:
