@@ -11,7 +11,7 @@ human_win = []
 
 
 def get_number_of_rolls():
-    return int(raw_input("How many rolls would you like to play?\n"))
+    return int(input("How many rolls would you like to play?\n"))
 
 
 def roll_the_die():
