@@ -7,7 +7,7 @@ from random import randint
 from time import sleep
 
 # list for counting wins/losses/ties
-human_win = []
+#human_wins = []
 
 
 def get_number_of_rolls():
@@ -30,37 +30,36 @@ def dice_turn(user):
 #         self.winner = winner
 
 # main logic for determining winner
-def compare_list_positions(ls):
+def compare_list_positions(wins):
 
-    if ls[0] > ls[1]:
+    if wins[0] > wins[1]:
         print('You win!')
-        human_win.append(1)
-    elif ls[1] > ls[0]:
+        #human_wins.append(1)
+    elif wins[0] > wins[1]:
         print('Computer win!')
-        human_win.append(0)
+        #human_wins.append(0)
     else:
         print('Tie!')
-        human_win.append(None)
+        #human_wins.append(None)
 
 
 def main():
-    rolls = get_number_of_rolls() * 2
-    turns = []
+   rolls = get_number_of_rolls() * 2
+   score = []
 
-    while rolls > 0:
+   while rolls > 0:
         if rolls % 2 == 0:
             turn = dice_turn('You')
-            turns.append(turn)
+            score.append(turn)
         else:
             turn = dice_turn('computer')
-            turns.append(turn)
-            compare_list_positions(turns)
-            turns = []
-
+            score.append(turn)
+            compare_list_positions(score)
+            score = []
         sleep(1)
         rolls -= 1
 
-    print(human_win)
+    #print(human_wins)
 
 
 if __name__ == '__main__':
