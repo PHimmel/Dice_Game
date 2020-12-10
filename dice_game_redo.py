@@ -6,9 +6,9 @@ A dice game.
 from random import randint
 from time import sleep
 
-# # sets up counter variables
-# human_win = 0
-# comp_win = 0
+# sets up counter variables
+human_win = 0
+comp_win = 0
 
 
 def get_number_of_rolls():
@@ -24,9 +24,6 @@ def dice_turn(user):
     print('{} rolled a {}'.format(user, turn))
     return turn
 
-# sets up counter variables
-human_win = 0
-comp_win = 0
 
 def determine_winner(human, comp):
 
