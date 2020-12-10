@@ -25,20 +25,29 @@ def dice_turn(user):
     return turn
 
 
-def determine_winner(human, comp):
+def determine_round_winner(human, comp):
 
     if human > comp:
         global human_win
         human_win += 1
-        print('You win!\n')
+        print('You win!\n--------------------')
 
     elif comp > human:
         global comp_win
         comp_win += 1
-        print('\nComputer wins!\n')
+        print('Computer wins!\n--------------------')
 
     else:
-        print('\nTie!\n')
+        print('Tie!\n--------------------')
+
+
+def determine_game_winner():
+    if human_win > comp_win:
+        print('\nThe human won!\n')
+    elif comp_win > human_win:
+        print('\nThe computer won!\n')
+    else:
+        print('Tie Die!')
 
 
 def main():
@@ -51,18 +60,12 @@ def main():
         else:
             comp = dice_turn('Computer')
             sleep(1)
-            determine_winner(human, comp)
+            determine_round_winner(human, comp)
 
         rolls -= 1
 
     sleep(2)
-
-    if human_win > comp_win:
-        print('\nThe human won!')
-    elif comp_win > human_win:
-        print('\nThe computer won!')
-    else:
-        print('Tie Die!')
+    determine_game_winner()
 
 
 if __name__ == '__main__':
