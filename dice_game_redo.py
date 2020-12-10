@@ -30,37 +30,39 @@ def determine_winner(human, comp):
     if human > comp:
         global human_win
         human_win += 1
-        print('You win!')
+        print('You win!\n')
+
     elif comp > human:
         global comp_win
         comp_win += 1
-        print('Computer win!')
+        print('\nComputer wins!\n')
+
     else:
-        print('Tie!')
+        print('\nTie!\n')
 
 
 def main():
-
     rolls = get_number_of_rolls() * 2
 
     while rolls > 0:
         if rolls % 2 == 0:
             human = dice_turn('You')
+            sleep(1)
         else:
-            comp = dice_turn('computer')
-
+            comp = dice_turn('Computer')
+            sleep(1)
             determine_winner(human, comp)
 
-        sleep(1)
         rolls -= 1
 
     sleep(2)
+
     if human_win > comp_win:
-        print('Human wins!')
+        print('\nThe human won!')
     elif comp_win > human_win:
-        print('Comp wins!')
+        print('\nThe computer won!')
     else:
-        print('Tie!')
+        print('Tie Die!')
 
 
 if __name__ == '__main__':
