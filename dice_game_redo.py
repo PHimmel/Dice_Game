@@ -49,13 +49,12 @@ def main():
 
    while rolls > 0:
         if rolls % 2 == 0:
-            turn = dice_turn('You')
-            score.append(turn)
+            human = dice_turn('You')
         else:
-            turn = dice_turn('computer')
-            score.append(turn)
-            compare_list_positions(score)
-            score = []
+            comp = dice_turn('computer')
+
+            compare_list_positions(human, comp)
+
         sleep(1)
         rolls -= 1
 
