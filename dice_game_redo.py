@@ -6,8 +6,9 @@ A dice game.
 from random import randint
 from time import sleep
 
-# list for counting wins/losses/ties
-#human_wins = []
+# # sets up counter variables
+# human_win = 0
+# comp_win = 0
 
 
 def get_number_of_rolls():
@@ -23,42 +24,46 @@ def dice_turn(user):
     print('{} rolled a {}'.format(user, turn))
     return turn
 
-# class Game:
-#
-#     def __init__(self, rolls, winner=0):
-#         self.rolls = rolls
-#         self.winner = winner
+# sets up counter variables
+human_win = 0
+comp_win = 0
 
-# main logic for determining winner
-def compare_list_positions(wins):
+def determine_winner(human, comp):
 
-    if wins[0] > wins[1]:
+    if human > comp:
+        global human_win
+        human_win += 1
         print('You win!')
-        #human_wins.append(1)
-    elif wins[0] > wins[1]:
+    elif comp > human:
+        global comp_win
+        comp_win += 1
         print('Computer win!')
-        #human_wins.append(0)
     else:
         print('Tie!')
-        #human_wins.append(None)
 
 
 def main():
-   rolls = get_number_of_rolls() * 2
-   score = []
 
-   while rolls > 0:
+    rolls = get_number_of_rolls() * 2
+
+    while rolls > 0:
         if rolls % 2 == 0:
             human = dice_turn('You')
         else:
             comp = dice_turn('computer')
 
-            compare_list_positions(human, comp)
+            determine_winner(human, comp)
 
         sleep(1)
         rolls -= 1
 
-    #print(human_wins)
+    sleep(2)
+    if human_win > comp_win:
+        print('Human wins!')
+    elif comp_win > human_win:
+        print('Comp wins!')
+    else:
+        print('Tie!')
 
 
 if __name__ == '__main__':
