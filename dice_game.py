@@ -70,6 +70,8 @@ class DieRoll:
         self.return_roll()
 
     def return_roll(self):
+        # fail point --> does not echo values properly
+        print(self.roll)
         return self.roll
 
 
